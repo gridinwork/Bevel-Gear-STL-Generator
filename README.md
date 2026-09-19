@@ -1,8 +1,6 @@
 # Bevel Gear STL Generator
 
-![Bevel Gear STL Generator interface](IMG/interface.png)
-
-A desktop parametric bevel-gear generator with interactive 3D preview and STL export. The application is designed for quickly creating customizable bevel gear models for prototyping, CAD work, mechanical experiments, and 3D printing.
+A desktop parametric bevel-gear generator with interactive 3D preview and STL export. The application is designed for quickly creating customizable bevel gear models for prototyping, CAD work, mechanical experiments, robotics, and 3D printing.
 
 ## Project Overview
 
@@ -18,45 +16,111 @@ The program provides a graphical interface for defining the principal gear dimen
 - Adjustable gear height / thickness
 - Pressure-angle configuration
 - Configurable center bore
-- Keyway-related dimensions
+- Keyway dimensions
 - Mesh/detail resolution control
 - Interactive 3D preview
-- Dimension and geometry visualization
+- Optional dimension overlays
 - STL export
-- Dark desktop interface
-- Windows-oriented workflow
-- Standalone executable build support
+- Dark Windows desktop interface
+- PyInstaller-based standalone EXE build
 
 ## Parametric Controls
 
-The application exposes the main parameters required to rapidly create and compare bevel-gear variants. Depending on the selected configuration, parameters include the number of teeth, outside diameter, overall height, bore diameter, keyway dimensions, pressure angle, and model resolution.
+The application exposes the main parameters required to rapidly create and compare bevel-gear variants:
+
+- number of teeth;
+- outside diameter;
+- overall height;
+- diameter where the tapered tooth section begins;
+- center flat-zone diameter;
+- center-bore diameter;
+- keyway width and depth;
+- pressure angle;
+- segments per tooth;
+- number of height layers.
 
 ## 3D Preview
 
-The integrated 3D viewer is based on PyVista/VTK and provides immediate visual feedback before export. The user can rotate and inspect the generated gear and evaluate the tooth shape, bore, proportions, and overall form before creating the STL file.
+The integrated viewer is based on **PyVista/VTK** and provides immediate visual feedback before export. The user can rotate and inspect the generated gear and optionally display dimensional annotations for the outside diameter, height, tooth count, center regions, bore, and keyway.
 
 ## STL Export
 
-The final geometry can be exported directly as STL for use with FDM or resin 3D printers, slicer software, CAD assemblies, mechanical prototypes, educational models, robotics, and transmission experiments.
+The generated geometry can be exported directly as STL for use with slicers, CAD assemblies, mechanical prototypes, educational models, robotics, and transmission experiments.
 
 ## Technology Stack
 
-- Python
-- PySide6 / Qt desktop interface
-- PyVista
-- VTK
-- NumPy
-- Trimesh and related mesh-processing tools where used by the project
-- PyInstaller for optional standalone Windows builds
+- **Python 3.11+**
+- **PySide6** — desktop GUI
+- **NumPy** — numerical geometry
+- **Trimesh** — mesh creation and STL export
+- **PyVista / PyVistaQt** — embedded 3D viewer
+- **VTK** — visualization backend
+- **PyInstaller** — optional standalone Windows build
+
+## Project Structure
+
+```text
+Bevel-Gear-STL-Generator/
+├── main.py
+├── requirements.txt
+├── install.bat
+├── start.bat
+├── build_exe.bat
+├── README.md
+├── README_RU.txt
+└── .gitignore
+```
+
+## Installation
+
+Python 3.11 or newer is recommended.
+
+On Windows:
+
+```text
+install.bat
+```
+
+The installer creates a local `.venv` and installs all dependencies listed in `requirements.txt`.
+
+Start the application with:
+
+```text
+start.bat
+```
+
+Or manually:
+
+```bash
+python -m venv .venv
+.venv\Scripts\python -m pip install -r requirements.txt
+.venv\Scripts\python main.py
+```
+
+## Building a Windows EXE
+
+Run:
+
+```text
+build_exe.bat
+```
+
+The PyInstaller output is created under:
+
+```text
+dist\BevelGearGenerator\
+```
+
+The application also contains a **Build EXE for Windows** button that invokes PyInstaller from the GUI.
 
 ## Typical Workflow
 
-1. Enter the required number of teeth.
+1. Enter the required tooth count.
 2. Define the main gear dimensions.
-3. Configure the center bore and keyway options.
-4. Set the pressure angle and model resolution.
+3. Configure the center bore and keyway.
+4. Set the pressure angle and mesh resolution.
 5. Generate or refresh the 3D preview.
-6. Inspect the model from different angles.
+6. Inspect the model and optional dimensions.
 7. Export the finished gear as STL.
 
 ## Use Cases
@@ -65,12 +129,16 @@ The final geometry can be exported directly as STL for use with FDM or resin 3D 
 - 3D-printed transmissions
 - Robotics mechanisms
 - Educational demonstrations
-- Rapid mechanical design experiments
+- Rapid mechanical-design experiments
 - CAD concept development
+
+## Repository Notes
+
+Large local runtimes, virtual environments, build outputs, generated meshes, and cache files are intentionally excluded from the repository. Install dependencies locally using `install.bat` or `requirements.txt`.
 
 ## Future Development
 
-Possible future improvements include additional bevel-gear geometry options, mating-pair generation, more advanced tooth calculations, tolerance/backlash controls, additional export formats, and expanded manufacturing presets.
+Possible future improvements include mating-pair generation, additional bevel-gear geometry options, more advanced tooth calculations, tolerance/backlash controls, additional export formats, and manufacturing presets.
 
 ## Disclaimer
 
