@@ -134,7 +134,11 @@ The application also contains a **Build EXE for Windows** button that invokes Py
 
 ## Repository Notes
 
-Large local runtimes, virtual environments, build outputs, generated meshes, and cache files are intentionally excluded from the repository. Install dependencies locally using `install.bat` or `requirements.txt`.
+Large local runtimes, virtual environments, build outputs, generated meshes, cache files, and application screenshots are intentionally excluded from this public source snapshot. Install dependencies locally using `install.bat` or `requirements.txt`.
+
+## Verification
+
+The published Python source was syntax-checked before publication. Full GUI execution and dependency installation require a Windows/Python environment with the packages from `requirements.txt`.
 
 ## Future Development
 
