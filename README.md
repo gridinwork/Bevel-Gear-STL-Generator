@@ -1,5 +1,7 @@
 # Bevel Gear STL Generator
 
+![Bevel Gear STL Generator interface](IMG/4.png)
+
 A desktop parametric bevel-gear generator with interactive 3D preview and STL export. The application is designed for quickly creating customizable bevel gear models for prototyping, CAD work, mechanical experiments, robotics, and 3D printing.
 
 ## Project Overview
